@@ -10,9 +10,12 @@ public class refa {
 		System.out.println(number + " | " + name);
 		
 		try {
+			
 			Field field = myClass.getClass().getDeclaredField("name");
 			field.setAccessible(true);
+			field.set(myClass, (String) "new");
 			name = (String) field.get(myClass);
+			
 		}	catch (NoSuchFieldException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
